@@ -25,6 +25,12 @@
 //procedo con la creazione dei campi
 
 const playBtn = document.querySelector(".set");
+const restartBtn = document.querySelector(".restart");
+const result = document.getElementById("result");
+
+restartBtn.addEventListener(`click`, function () {
+    window.location.reload();
+})
 
 playBtn.addEventListener(`click`, function () {
 
@@ -65,14 +71,13 @@ console.log(bomb);
             boardCell.addEventListener("click", function() {
                 if( bomb.includes(i)) {
                     boardContainer.classList.add("lose");
-                    alert(`hai perso! Il tuo punteggio è di ${points}`);
-                    window.location.reload();
+                    result.innerHTML = `hai perso! Il tuo punteggio è di ${points}`
                 }else{
                     this.classList.add("clicked");
                     points++;
+                    result.innerHTML = `Il tuo punteggio è di ${points}`
                     if (points === cells - 16){
-                        alert("Hai vinto!!!");
-                        window.location.reload();
+                        result.innerHTML = `hai perso! Il tuo punteggio è di ${points}`
                     }
                 }
                 console.log(points);
