@@ -44,27 +44,36 @@ for ( let i = 0; i <= 16; i++) {
 console.log(bomb);
 let game;
 
-//procedo con la creazione del campo
+//procedo con la creazione dei campi
 
-let boardContainer = document.querySelector(".board");
+const playBtn = document.querySelector(".set");
 
-for ( let i = 1; i <= 100; i++) {
-    let boardCell = document.createElement("div");
-    boardCell.innerHTML = i;
-    boardCell.addEventListener("click", function() {
-        if( bomb.includes(i)){
-            this.classList.add("bomb");
-        }else{
-            this.classList.add("clicked");
+playBtn.addEventListener(`click`, function () {
+
+        let userOption = document.getElementById("difficulty").value;
+        let cells;
+        if (userOption === "easy") {
+            cells = 100;
+        } else if (userOption === "normal") {
+            cells = 81;
+        } else if (userOption === "hard") {
+            cells = 49;
         }
-    });
-    boardContainer.append(boardCell);
-    boardCell.classList.add(`board_number_hard`);
-}
-
-
-function winner (punti) {
-
-}
+        let boardContainer = document.querySelector(".board");
+        boardContainer.innerHTML = "";
+        for ( let i = 1; i <= cells; i++) {
+            let boardCell = document.createElement("div");
+            boardCell.innerHTML = i;
+            boardCell.addEventListener("click", function() {
+                if( bomb.includes(i)){
+                    this.classList.add("bomb");
+                }else{
+                    this.classList.add("clicked");
+                }
+            });
+            boardContainer.append(boardCell);
+            boardCell.classList.add(`board_number_${userOption}`);
+        }
+    })
 
 

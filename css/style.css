@@ -53,7 +53,7 @@ footer{
     margin: auto;
 }
 
-.board_number_hard{
+.board_number_easy{
     width: calc(100% / 10);
     height: calc(100% / 10);
     border: 1px solid black;
@@ -62,7 +62,7 @@ footer{
     align-items: center;
 }
 
-.board_number_medium{
+.board_number_normal{
     width: calc(100% / 9);
     height: calc(100% / 9);
     border: 1px solid black;
@@ -71,7 +71,7 @@ footer{
     align-items: center;
 }
 
-.board_number_easy{
+.board_number_hard{
     width: calc(100% / 7);
     height: calc(100% / 7);
     border: 1px solid black;
