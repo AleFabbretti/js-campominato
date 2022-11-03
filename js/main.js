@@ -63,8 +63,8 @@ console.log(bomb);
             let boardCell = document.createElement("div");
             boardCell.innerHTML = i;
             boardCell.addEventListener("click", function() {
-                if( bomb.includes(i)){
-                    this.classList.add("bomb");
+                if( bomb.includes(i)) {
+                    boardContainer.classList.add("lose");
                     alert(`hai perso! Il tuo punteggio è di ${points}`);
                     window.location.reload();
                 }else{
@@ -79,6 +79,7 @@ console.log(bomb);
             });
             boardContainer.append(boardCell);
             boardCell.classList.add(`board_number_${userOption}`);
+            if (bomb.includes(i)) boardCell.classList.add(`bomb`);
         }
     })
 
