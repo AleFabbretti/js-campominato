@@ -20,29 +20,7 @@
 
 "use strict"
 
-//creo i primi 16 numeri
 
-let points = 0;
-let bomb = [];
-let level = 100;
-
-//creo un ciclo per generare i 16 numeri della cpu
-
-for ( let i = 0; i <= 16; i++) {
-    let play = true;
-    
-    while (play) {
-        let randomNum=parseInt(Math.random()*(100-1)+1);
-        if(bomb.includes(randomNum)){
-            play = true;
-        }else{
-            bomb.push(randomNum);
-            play = false;
-        }   
-    }
-}
-console.log(bomb);
-let game;
 
 //procedo con la creazione dei campi
 
@@ -50,7 +28,12 @@ const playBtn = document.querySelector(".set");
 
 playBtn.addEventListener(`click`, function () {
 
-        let userOption = document.getElementById("difficulty").value;
+    let points = 0;
+
+    let bomb = [];
+
+    //creo un ciclo per generare i 16 numeri della cpu
+    let userOption = document.getElementById("difficulty").value;
         let cells;
         if (userOption === "easy") {
             cells = 100;
@@ -59,6 +42,21 @@ playBtn.addEventListener(`click`, function () {
         } else if (userOption === "hard") {
             cells = 49;
         }
+    
+    for ( let i = 1; i <= 16; i++) {
+        let play = true;
+        
+        while (play) {
+            let randomNum=parseInt(Math.random()*(cells-1)+1);
+            if(bomb.includes(randomNum)){
+                play = true;
+            }else{
+                bomb.push(randomNum);
+                play = false;
+            }   
+        }
+    }
+console.log(bomb);
         let boardContainer = document.querySelector(".board");
         boardContainer.innerHTML = "";
         for ( let i = 1; i <= cells; i++) {
@@ -67,9 +65,17 @@ playBtn.addEventListener(`click`, function () {
             boardCell.addEventListener("click", function() {
                 if( bomb.includes(i)){
                     this.classList.add("bomb");
+                    alert(`hai perso! Il tuo punteggio è di ${points}`);
+                    window.location.reload();
                 }else{
                     this.classList.add("clicked");
+                    points++;
+                    if (points === cells - 16){
+                        alert("Hai vinto!!!");
+                        window.location.reload();
+                    }
                 }
+                console.log(points);
             });
             boardContainer.append(boardCell);
             boardCell.classList.add(`board_number_${userOption}`);
