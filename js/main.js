@@ -50,11 +50,12 @@ let boardContainer = document.querySelector(".board");
 for ( let i = 1; i <= 100; i++) {
     let boardCell = document.createElement("div");
     boardCell.innerHTML = i;
-    boardCell.addEventListener('click', function () {
-           boardCell.classList.add("clicked")
+    boardCell.addEventListener("click", function() {
+           this.classList.add("clicked")
     });
     boardContainer.append(boardCell);
     boardCell.classList.add(`board_number_hard`);
-    
 }
+
+
 
