@@ -79,7 +79,12 @@ footer{
     justify-content: center;
     align-items: center;
 }
+#
 
 .clicked{
     background-color: greenyellow;
+}
+
+.bomb{
+    background-color: red;
 }

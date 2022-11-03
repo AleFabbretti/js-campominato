@@ -18,14 +18,14 @@
 
 // }
 
-const btnGenerator = document.querySelector(".set");
+"use strict"
 
-btnGenerator.addEventListener(`click`, function () {
-    let level = document.getElementById("difficulty").value;
-    const boardContainer = document.querySelector(".board");
+/*-----------
+  FUNCTIONS
+-----------*/
 
-    createCells(level);
-    boardContainer.innerHTML = "";
-    for (let i = 1; )
-})
 
+/*-----------
+     MAIN
+-----------*/
+const cellContainer = document.querySelector(".board");
