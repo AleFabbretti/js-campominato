@@ -41,6 +41,7 @@ for ( let i = 0; i <= 16; i++) {
         }   
     }
 }
+console.log(bomb);
 let game;
 
 //procedo con la creazione del campo
@@ -51,11 +52,19 @@ for ( let i = 1; i <= 100; i++) {
     let boardCell = document.createElement("div");
     boardCell.innerHTML = i;
     boardCell.addEventListener("click", function() {
-           this.classList.add("clicked")
+        if( bomb.includes(i)){
+            this.classList.add("bomb");
+        }else{
+            this.classList.add("clicked");
+        }
     });
     boardContainer.append(boardCell);
     boardCell.classList.add(`board_number_hard`);
 }
 
+
+function winner (punti) {
+
+}
 
 
