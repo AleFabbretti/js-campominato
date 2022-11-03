@@ -20,12 +20,36 @@
 
 "use strict"
 
-/*-----------
-  FUNCTIONS
------------*/
+//creo i primi 16 numeri
 
+let points = 0;
+let bomb = [];
+let level = 100;
 
-/*-----------
-     MAIN
------------*/
-const cellContainer = document.querySelector(".board");
+//creo un ciclo per generare i 16 numeri della cpu
+
+for ( let i = 0; i <= 16; i++) {
+    let play = true;
+    
+    while (play) {
+        let randomNum=parseInt(Math.random()*(100-1)+1);
+        if(bomb.includes(randomNum)){
+            play = true;
+        }else{
+            bomb.push(randomNum);
+            play = false;
+        }   
+    }
+}
+let game;
+
+//procedo con la creazione del campo
+
+let boardContainer = document.querySelector(".board");
+
+for ( let i = 1; i <= 100; i++) {
+    let boardCell = document.createElement("div");
+    boardCell.innerHTML = i;
+    element.addEventListener('click', clicked);
+}
+
